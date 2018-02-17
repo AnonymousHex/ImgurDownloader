@@ -1,0 +1,46 @@
+{
+
+	"manifest_version": 2,
+	"name": "Imgur Downloader",
+	"version": "1.0",
+
+	"description": "Downloads an entire user's images automatically.",
+	
+	"browser_action": 
+	{
+		"default_title": "Imgur Downloader",
+		"browser_style": true,
+		"default_icon":
+		{
+			"16": "img/icon-16.png",
+			"32": "img/icon-32.png",
+			"128": "img/icon-128.png"
+		}
+	},
+  
+	"icons": 
+	{
+	  "48": "img/icon-48.png",
+	  "96": "img/icon.svg"
+	},
+
+	"content_scripts":
+	[
+		{
+		  "matches": ["*://*.imgur.com/all*"],
+		  "js": ["js/content.js"]
+		}
+	],
+  
+	"background": 
+	{
+		"scripts": ["js/download.js"],
+		"persistent": false
+	},
+  
+	"permissions": 
+	[
+		"downloads"
+	]
+
+}
